@@ -14,8 +14,6 @@ param containerPort int
 param registry string
 param registryUsername string
 
-var pwd = 'test12345'
-
 resource rg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   name: 'rg-${env}-${appName}'
   location: location
@@ -41,9 +39,10 @@ module backendContainerApp 'container-app.bicep' = {
     location: location
     name: '${appName}-backend'
     registry: registry
-    registryPassword: pwd
+    registrypws: 'mybadpassword'
     registryUsername: registryUsername
     useExternalIngress: false
+
     envVars: [
       {
         name: 'ASPNETCORE_ENVIRONMENT'
@@ -63,7 +62,7 @@ module frontendContainerApp 'container-app.bicep' = {
     location: location
     name: '${appName}-frontend'
     registry: registry
-    registryPassword: pwd
+    registrypws: 'mybadpwd'
     registryUsername: registryUsername
     useExternalIngress: true
     envVars: [

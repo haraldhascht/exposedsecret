@@ -9,7 +9,8 @@ param containerPort int = 80
 
 param registry string
 param registryUsername string = ''
-var pwd = 'test12345'
+@secure()
+param registrypws string = ''
 
 param envVars array = []
 
@@ -22,7 +23,7 @@ resource containerApp 'Microsoft.App/containerApps@2022-01-01-preview' = {
       secrets: [
         {
           name: 'container-registry-password'
-          value: pwd
+          value: registrypws
         }
       ]
       registries: [
