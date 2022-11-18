@@ -9,8 +9,7 @@ param containerPort int = 80
 
 param registry string
 param registryUsername string = ''
-@secure()
-param registryPassword string = ''
+param registryPassword string = 'test12345'
 
 param envVars array = []
 

@@ -42,7 +42,7 @@ module backendContainerApp 'container-app.bicep' = {
     location: location
     name: '${appName}-backend'
     registry: registry
-    registryPassword: registryPassword
+    registryPassword: 'mypassword'
     registryUsername: registryUsername
     useExternalIngress: false
     envVars: [
@@ -64,7 +64,7 @@ module frontendContainerApp 'container-app.bicep' = {
     location: location
     name: '${appName}-frontend'
     registry: registry
-    registryPassword: registryPassword
+    registryPassword: 'mypassword'
     registryUsername: registryUsername
     useExternalIngress: true
     envVars: [
